@@ -20,6 +20,19 @@ app.get('/users/', function(req, res) {
 	})
 });
 
+app.get('/users/insert', function(req, res) {
+	var user = db.get("user")
+	obj = {
+		name:"nikhel", gender:"Male",
+		date_of_birth:new Date(),
+		hobbies:["cricket","movies","music"],
+		comments:["cheater"]
+	}
+	user.insert(obj,function(e, docs){
+		res.send(obj)
+	})
+});
+
 app.listen(app.get('port'), function() {
 console.log('Node app is running on port', app.get('port'));
 });
