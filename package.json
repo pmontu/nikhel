@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
+  "name": "Users",
   "version": "0.1.5",
-  "description": "A sample Node.js app using Express 4",
+  "description": "user info",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
+    "url": "https://github.com/pmontu/nikhel.git"
   },
   "keywords": [
     "node",
