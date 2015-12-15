@@ -28,8 +28,12 @@ DELETE /users/:userid
 returns count documents affected
 
 INSERT
+POST /users/
+returns object inserted
 
 UPDATE
+PATCH /users/:userid
+returns object updated
 
 DUMP
 GET /insert/

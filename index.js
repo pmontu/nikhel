@@ -37,6 +37,17 @@ app.post('/users/', function(req, res) {
 	})
 });
 
+app.patch('/users/:userid', function(req, res) {
+	var user = db.get("user")
+	obj = req.body
+	user.update(
+		{_id:ObjectId(req.params.userid)}, obj,
+		function(e, docs){
+			res.json(obj)
+		}
+	)
+});
+
 app.get('/users/:userid', function(req, res) {
 	var user = db.get("user")
 	user.find({_id:ObjectId(req.params.userid)},{},function(e, docs){
