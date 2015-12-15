@@ -24,9 +24,17 @@ app.get('/users/', function(req, res) {
 	})
 });
 
-app.post('/users/', function(req, res) {
+app.post('/check/', function(req, res) {
 	var user = db.get("user")
 	res.send(req.body)
+});
+
+app.post('/users/', function(req, res) {
+	var user = db.get("user")
+	obj = req.body
+	user.insert(obj,function(e, docs){
+		res.json(obj)
+	})
 });
 
 app.get('/users/:userid', function(req, res) {
