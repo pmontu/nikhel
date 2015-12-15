@@ -4,6 +4,7 @@ var app = express();
 var mongo = require('mongodb');
 var monk = require('monk');
 var db =  monk('localhost:27017/nikhel');
+var ObjectId = mongo.ObjectID;
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -16,11 +17,18 @@ app.get('/', function(req, res) {
 app.get('/users/', function(req, res) {
 	var user = db.get("user")
 	user.find({},{},function(e, docs){
-		res.send(docs)
+		res.json(docs)
 	})
 });
 
-app.get('/users/insert', function(req, res) {
+app.get('/users/:userid', function(req, res) {
+	var user = db.get("user")
+	user.find({_id:ObjectId(req.params.userid)},{},function(e, docs){
+		res.json(docs)
+	})
+});
+
+app.get('/users/insert/', function(req, res) {
 	var user = db.get("user")
 	obj = {
 		name:"nikhel", gender:"Male",
@@ -29,7 +37,7 @@ app.get('/users/insert', function(req, res) {
 		comments:["cheater"]
 	}
 	user.insert(obj,function(e, docs){
-		res.send(obj)
+		res.json(obj)
 	})
 });
 

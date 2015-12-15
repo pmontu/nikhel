@@ -12,3 +12,11 @@ $ nodemon index.js
 ```
 
 install and start the mongo service
+
+## API
+
+/users/
+returns []
+
+/users/insert/
+returns obj_inserted with _id
