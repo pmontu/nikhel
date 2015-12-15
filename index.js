@@ -6,6 +6,9 @@ var monk = require('monk');
 var db =  monk('localhost:27017/nikhel');
 var ObjectId = mongo.ObjectID;
 
+var bodyParser = require('body-parser');
+app.use(bodyParser());
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -19,6 +22,11 @@ app.get('/users/', function(req, res) {
 	user.find({},{},function(e, docs){
 		res.json(docs)
 	})
+});
+
+app.post('/users/', function(req, res) {
+	var user = db.get("user")
+	res.send(req.body)
 });
 
 app.get('/users/:userid', function(req, res) {

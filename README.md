@@ -19,19 +19,22 @@ LIST
 GET /users/
 returns []
 
-DUMP
-GET /insert/
-returns obj_inserted with _id
-
 RETRIEVE
 GET /users/:userid
 returns user object at :userid
-
-INSERT
 
 DELETE
 DELETE /users/:userid
 returns count documents affected
 
+INSERT
+
 UPDATE
 
+DUMP
+GET /insert/
+returns obj_inserted with _id
+
+CHECK
+POST /check/
+returns x-www-form-urlencoded data
