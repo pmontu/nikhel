@@ -15,8 +15,23 @@ install and start the mongo service
 
 ## API
 
-/users/
+LIST
+GET /users/
 returns []
 
-/users/insert/
+DUMP
+GET /insert/
 returns obj_inserted with _id
+
+RETRIEVE
+GET /users/:userid
+returns user object at :userid
+
+INSERT
+
+DELETE
+DELETE /users/:userid
+returns count documents affected
+
+UPDATE
+

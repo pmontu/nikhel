@@ -24,11 +24,22 @@ app.get('/users/', function(req, res) {
 app.get('/users/:userid', function(req, res) {
 	var user = db.get("user")
 	user.find({_id:ObjectId(req.params.userid)},{},function(e, docs){
+		if(docs.length==1){
+			res.json(docs[0])
+		} else {
+			res.send("Not Found")
+		}
+	})
+});
+
+app.delete('/users/:userid', function(req, res) {
+	var user = db.get("user")
+	user.remove({_id:ObjectId(req.params.userid)},{},function(e, docs){
 		res.json(docs)
 	})
 });
 
-app.get('/users/insert/', function(req, res) {
+app.get('/insert/', function(req, res) {
 	var user = db.get("user")
 	obj = {
 		name:"nikhel", gender:"Male",
