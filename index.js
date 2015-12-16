@@ -3,7 +3,8 @@ var app = express();
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db =  monk('localhost:27017/nikhel');
+var url = process.env.NIKHEL_MONGO_URL || 'localhost:27017/nikhel'
+var db =  monk(url);
 var ObjectId = mongo.ObjectID;
 
 var bodyParser = require('body-parser');
