@@ -33,7 +33,7 @@ returns object inserted
 
 UPDATE
 PATCH /users/:userid
-returns object updated
+returns count documents affected
 
 DUMP
 GET /insert/

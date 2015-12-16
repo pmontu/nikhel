@@ -44,7 +44,7 @@ app.patch('/users/:userid', function(req, res) {
 	user.update(
 		{_id:ObjectId(req.params.userid)}, obj,
 		function(e, docs){
-			res.json(obj)
+			res.json(docs)
 		}
 	)
 });
